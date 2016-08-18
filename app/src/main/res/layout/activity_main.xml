@@ -12,7 +12,7 @@
 
     <ImageView android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/megan2"
+        android:src="@drawable/salena"
         android:id="@+id/img"
         android:layout_centerHorizontal="true">
     </ImageView>
