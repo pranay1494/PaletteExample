@@ -2,6 +2,8 @@ package com.gsinexample.pranay.palette;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.graphics.Palette;
@@ -17,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ActionBar actionBar = getSupportActionBar();
+
         emptyView = findViewById(R.id.emptyview);
         final int dColor = 0x000000;
         ImageView imageView = (ImageView) findViewById(R.id.img);
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Palette.from(myBitmap).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(Palette p) {
                 emptyView.setBackgroundColor(p.getMutedColor(dColor));
+                actionBar.setBackgroundDrawable(new ColorDrawable(p.getMutedColor(dColor)));
             }
         });
     }
